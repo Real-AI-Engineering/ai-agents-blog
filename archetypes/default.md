@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-author: "Your Name"
+author: "Real AI Engineering"
 tags: []
 categories: []
 description: ""
@@ -16,7 +16,7 @@ cover:
     relative: false
     hidden: true
 editPost:
-    URL: "https://github.com/yourname/ai-agents-blog/tree/main/content" # TODO: Replace with your repo
+    URL: "https://github.com/Real-AI-Engineering/ai-agents-blog/tree/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 ---

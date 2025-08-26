@@ -2,7 +2,7 @@
 title: "Создание вашего первого AI агента: Пошаговое руководство"
 date: 2024-01-20T14:30:00+00:00
 draft: false
-author: "Your Name"
+author: "Real AI Engineering"
 tags: ["ИИ", "Программирование", "Урок", "Python", "OpenAI"]
 categories: ["Уроки"]
 description: "Научитесь создавать своего первого AI агента с нуля, используя Python и современные AI фреймворки."
@@ -16,7 +16,7 @@ cover:
     relative: false
     hidden: true
 editPost:
-    URL: "https://github.com/yourname/ai-agents-blog/tree/main/content"
+    URL: "https://github.com/Real-AI-Engineering/ai-agents-blog/tree/main/content"
     Text: "Предложить изменения"
     appendFilePath: true
 ---

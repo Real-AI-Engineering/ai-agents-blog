@@ -1,4 +1,4 @@
-baseURL: "https://yourname.github.io/ai-agents-blog/" # TODO: Replace with your GitHub Pages URL
+baseURL: "https://real-ai-engineering.github.io/ai-agents-blog/"
 languageCode: "en-us"
 title: "AI Agents Blog"
 theme: "PaperMod"
@@ -92,14 +92,12 @@ params:
   ShowToc: true
   
   # Author
-  author: "Your Name" # TODO: Replace with your name
+  author: "Real AI Engineering"
   
   # Social links
   socialIcons:
     - name: github
-      url: "https://github.com/yourname" # TODO: Replace with your GitHub
-    - name: twitter
-      url: "https://twitter.com/yourname" # TODO: Replace with your Twitter (optional)
+      url: "https://github.com/Real-AI-Engineering"
     - name: rss
       url: "/index.xml"
 

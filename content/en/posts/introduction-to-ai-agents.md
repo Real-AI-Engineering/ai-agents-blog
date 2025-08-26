@@ -2,7 +2,7 @@
 title: "Introduction to AI Agents: The Future of Automation"
 date: 2024-01-15T10:00:00+00:00
 draft: false
-author: "Your Name"
+author: "Real AI Engineering"
 tags: ["AI", "Agents", "Automation", "Machine Learning"]
 categories: ["AI Fundamentals"]
 description: "Explore the fascinating world of AI agents and discover how they're revolutionizing automation across industries."
@@ -16,7 +16,7 @@ cover:
     relative: false
     hidden: true
 editPost:
-    URL: "https://github.com/yourname/ai-agents-blog/tree/main/content"
+    URL: "https://github.com/Real-AI-Engineering/ai-agents-blog/tree/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 ---

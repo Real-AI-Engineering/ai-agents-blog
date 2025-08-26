@@ -2,7 +2,7 @@
 title: "Введение в AI агентов: Будущее автоматизации"
 date: 2024-01-15T10:00:00+00:00
 draft: false
-author: "Your Name"
+author: "Real AI Engineering"
 tags: ["ИИ", "Агенты", "Автоматизация", "Машинное обучение"]
 categories: ["Основы ИИ"]
 description: "Исследуйте захватывающий мир AI агентов и узнайте, как они революционизируют автоматизацию в различных отраслях."
@@ -16,7 +16,7 @@ cover:
     relative: false
     hidden: true
 editPost:
-    URL: "https://github.com/yourname/ai-agents-blog/tree/main/content"
+    URL: "https://github.com/Real-AI-Engineering/ai-agents-blog/tree/main/content"
     Text: "Предложить изменения"
     appendFilePath: true
 ---

@@ -2,7 +2,7 @@
 title: "Building Your First AI Agent: A Step-by-Step Guide"
 date: 2024-01-20T14:30:00+00:00
 draft: false
-author: "Your Name"
+author: "Real AI Engineering"
 tags: ["AI", "Programming", "Tutorial", "Python", "OpenAI"]
 categories: ["Tutorials"]
 description: "Learn how to build your first AI agent from scratch using Python and modern AI frameworks."
@@ -16,7 +16,7 @@ cover:
     relative: false
     hidden: true
 editPost:
-    URL: "https://github.com/yourname/ai-agents-blog/tree/main/content"
+    URL: "https://github.com/Real-AI-Engineering/ai-agents-blog/tree/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 ---
