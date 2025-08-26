@@ -1,0 +1,151 @@
+baseURL: "https://yourname.github.io/ai-agents-blog/" # TODO: Replace with your GitHub Pages URL
+languageCode: "en-us"
+title: "AI Agents Blog"
+theme: "PaperMod"
+
+# Multilingual configuration
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    languageName: "English"
+    contentDir: "content/en"
+    weight: 1
+    menu:
+      main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: 1
+        - identifier: posts
+          name: Posts
+          url: /posts/
+          weight: 2
+        - identifier: search
+          name: Search
+          url: /search/
+          weight: 3
+    params:
+      homeInfoParams:
+        Title: "Welcome to AI Agents Blog"
+        Content: "Exploring the world of AI agents, automation, and intelligent systems"
+
+  ru:
+    languageName: "Русский"
+    contentDir: "content/ru"
+    weight: 2
+    menu:
+      main:
+        - identifier: home
+          name: Главная
+          url: /ru/
+          weight: 1
+        - identifier: posts
+          name: Статьи
+          url: /ru/posts/
+          weight: 2
+        - identifier: search
+          name: Поиск
+          url: /ru/search/
+          weight: 3
+    params:
+      homeInfoParams:
+        Title: "Добро пожаловать в блог об AI агентах"
+        Content: "Исследуем мир AI агентов, автоматизации и интеллектуальных систем"
+
+# Enable emoji support
+enableEmoji: true
+
+# Pagination
+paginate: 10
+
+# Build configuration
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# Params for PaperMod theme
+params:
+  # Environment (dev/prod)
+  env: production
+  
+  # Default theme: light, dark, auto
+  defaultTheme: dark # TODO: Dark theme by default as requested
+  
+  # Show reading time
+  ShowReadingTime: true
+  
+  # Show breadcrumbs
+  ShowBreadCrumbs: true
+  
+  # Show code copy button
+  ShowCodeCopyButtons: true
+  
+  # Show full text in RSS
+  ShowFullTextinRSS: true
+  
+  # Show post navigation links
+  ShowPostNavLinks: true
+  
+  # Show table of contents
+  ShowToc: true
+  
+  # Author
+  author: "Your Name" # TODO: Replace with your name
+  
+  # Social links
+  socialIcons:
+    - name: github
+      url: "https://github.com/yourname" # TODO: Replace with your GitHub
+    - name: twitter
+      url: "https://twitter.com/yourname" # TODO: Replace with your Twitter (optional)
+    - name: rss
+      url: "/index.xml"
+
+  # Search configuration
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+# Enable search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Markup configuration
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github-dark
+    lineNos: true
+    codeFences: true
+    guessSyntax: true
+
+# Privacy configuration
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: false
+    anonymizeIP: true
+    respectDoNotTrack: true
+  instagram:
+    disable: true
+  twitter:
+    disable: false
+    enableDNT: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: false
+    privacyEnhanced: true
