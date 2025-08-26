@@ -7,7 +7,7 @@ streams:
     end: "2025-08-26T20:30:00+03:00"
     platforms: ["twitch"]
     links:
-      twitch: "https://twitch.tv/your"
+      twitch: "https://www.twitch.tv/t3chnxx"
     desc:
       ru: ""
       en: ""
@@ -21,7 +21,7 @@ streams:
     end: "2025-08-27T20:30:00+03:00"
     platforms: ["twitch"]
     links:
-      twitch: "https://twitch.tv/your"
+      twitch: "https://www.twitch.tv/t3chnxx"
     desc:
       ru: ""
       en: ""
@@ -35,7 +35,7 @@ streams:
     end: "2025-08-28T20:00:00+03:00"
     platforms: ["twitch"]
     links:
-      twitch: "https://twitch.tv/your"
+      twitch: "https://www.twitch.tv/t3chnxx"
     desc:
       ru: ""
       en: ""
@@ -49,7 +49,7 @@ streams:
     end: "2025-08-29T21:00:00+03:00"
     platforms: ["twitch"]
     links:
-      twitch: "https://twitch.tv/your"
+      twitch: "https://www.twitch.tv/t3chnxx"
     desc:
       ru: ""
       en: ""

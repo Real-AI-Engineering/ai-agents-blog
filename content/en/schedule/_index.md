@@ -12,7 +12,7 @@ Welcome to our stream schedule page! Here you can find information about upcomin
 ## 📺 Where to Watch
 
 Streams are broadcasted on the following platform:
-- **[Twitch](https://twitch.tv/your)** — main platform for interactive communication
+- **[Twitch](https://www.twitch.tv/t3chnxx)** — main platform for interactive communication
 
 ## 📄 Calendar
 
