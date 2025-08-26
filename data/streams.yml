@@ -1,40 +1,56 @@
 streams:
   - id: "2025-08-26-automation"
-    title: "Автоматизация рутины с помощью AI"
+    title:
+      ru: "Автоматизация рутины с помощью AI"
+      en: "Automating Routine Tasks with AI"
     start: "2025-08-26T19:00:00+03:00"
     end: "2025-08-26T20:30:00+03:00"
     platforms: ["twitch"]
     links:
       twitch: "https://twitch.tv/your"
-    desc: ""
+    desc:
+      ru: ""
+      en: ""
     tags: ["automation", "productivity", "ai"]
   
   - id: "2025-08-27-automation"
-    title: "Автоматизация рутины с помощью AI"
+    title:
+      ru: "Автоматизация рутины с помощью AI"
+      en: "Automating Routine Tasks with AI"
     start: "2025-08-27T19:00:00+03:00"
     end: "2025-08-27T20:30:00+03:00"
     platforms: ["twitch"]
     links:
       twitch: "https://twitch.tv/your"
-    desc: ""
+    desc:
+      ru: ""
+      en: ""
     tags: ["automation", "productivity", "ai"]
   
   - id: "2025-08-28-automation"
-    title: "Автоматизация рутины с помощью AI"
+    title:
+      ru: "Автоматизация рутины с помощью AI"
+      en: "Automating Routine Tasks with AI"
     start: "2025-08-28T19:00:00+03:00"
     end: "2025-08-28T20:00:00+03:00"
     platforms: ["twitch"]
     links:
       twitch: "https://twitch.tv/your"
-    desc: ""
+    desc:
+      ru: ""
+      en: ""
     tags: ["automation", "productivity", "ai"]
   
   - id: "2025-08-29-automation"
-    title: "Автоматизация рутины с помощью AI"
+    title:
+      ru: "Автоматизация рутины с помощью AI"
+      en: "Automating Routine Tasks with AI"
     start: "2025-08-29T19:00:00+03:00"
     end: "2025-08-29T21:00:00+03:00"
     platforms: ["twitch"]
     links:
       twitch: "https://twitch.tv/your"
-    desc: ""
+    desc:
+      ru: ""
+      en: ""
     tags: ["automation", "productivity", "ai"]

@@ -22,6 +22,12 @@ def load_streams():
         print(f"Error loading streams.yml: {e}")
         return []
 
+def get_localized_field(field, lang='ru'):
+    """Get localized field value."""
+    if isinstance(field, dict):
+        return field.get(lang, field.get('ru', field.get('en', '')))
+    return field or ''
+
 def is_in_next_7_days(start_str):
     """Check if event is within next 7 days."""
     try:
@@ -64,8 +70,8 @@ def build_message(streams):
     
     for stream in sorted_streams:
         time_str = format_stream_time(stream.get('start', ''))
-        title = stream.get('title', 'Стрим')
-        desc = stream.get('desc', '').strip()
+        title = get_localized_field(stream.get('title', ''), 'ru')
+        desc = get_localized_field(stream.get('desc', ''), 'ru').strip()
         
         line = f"🔴 **{time_str}** — {title}"
         

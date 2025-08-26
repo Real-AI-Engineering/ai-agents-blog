@@ -27,6 +27,10 @@ languages:
           name: Search
           url: /search/
           weight: 3
+        - identifier: schedule
+          name: Stream Schedule
+          url: /schedule/
+          weight: 4
     params:
       homeInfoParams:
         Title: "Welcome to AI Agents Blog"

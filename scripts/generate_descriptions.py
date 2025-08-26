@@ -31,6 +31,12 @@ def save_streams(data):
     except Exception as e:
         print(f"Error saving streams.yml: {e}")
 
+def get_localized_field(field, lang='ru'):
+    """Get localized field value."""
+    if isinstance(field, dict):
+        return field.get(lang, field.get('ru', field.get('en', '')))
+    return field or ''
+
 def is_tomorrow(start_str):
     """Check if event is scheduled for tomorrow (Europe/Moscow timezone)."""
     try:
@@ -46,13 +52,16 @@ def is_tomorrow(start_str):
         print(f"Error parsing date {start_str}: {e}")
         return False
 
-def call_openai_api(title, tags):
+def call_openai_api(title, tags, lang='ru'):
     """Call OpenAI API for description generation."""
     api_key = os.getenv('OPENAI_API_KEY')
     if not api_key:
         return None
     
-    prompt = f"Создай краткое описание для стрима '{title}' с тегами {tags}. 2-3 предложения на русском языке. Без лишних слов, конкретно о том, что будет в стриме."
+    if lang == 'ru':
+        prompt = f"Создай краткое описание для стрима '{title}' с тегами {tags}. 2-3 предложения на русском языке. Без лишних слов, конкретно о том, что будет в стриме."
+    else:
+        prompt = f"Create a brief description for the stream '{title}' with tags {tags}. 2-3 sentences in English. Be specific about what will be covered in the stream."
     
     data = {
         "model": "gpt-4o-mini",
@@ -80,13 +89,16 @@ def call_openai_api(title, tags):
         print(f"OpenAI API error: {e}")
         return None
 
-def call_anthropic_api(title, tags):
+def call_anthropic_api(title, tags, lang='ru'):
     """Call Anthropic API for description generation."""
     api_key = os.getenv('ANTHROPIC_API_KEY')
     if not api_key:
         return None
     
-    prompt = f"Создай краткое описание для стрима '{title}' с тегами {tags}. 2-3 предложения на русском языке. Без лишних слов, конкретно о том, что будет в стриме."
+    if lang == 'ru':
+        prompt = f"Создай краткое описание для стрима '{title}' с тегами {tags}. 2-3 предложения на русском языке. Без лишних слов, конкретно о том, что будет в стриме."
+    else:
+        prompt = f"Create a brief description for the stream '{title}' with tags {tags}. 2-3 sentences in English. Be specific about what will be covered in the stream."
     
     data = {
         "model": "claude-3-haiku-20240307",
@@ -114,18 +126,18 @@ def call_anthropic_api(title, tags):
         print(f"Anthropic API error: {e}")
         return None
 
-def generate_description(title, tags):
+def generate_description(title, tags, lang='ru'):
     """Generate description using available AI API."""
     # Try OpenAI first
-    desc = call_openai_api(title, tags)
+    desc = call_openai_api(title, tags, lang)
     if desc:
-        print(f"✓ Generated description via OpenAI")
+        print(f"✓ Generated {lang.upper()} description via OpenAI")
         return desc
     
     # Try Anthropic if OpenAI failed
-    desc = call_anthropic_api(title, tags)
+    desc = call_anthropic_api(title, tags, lang)
     if desc:
-        print(f"✓ Generated description via Anthropic")
+        print(f"✓ Generated {lang.upper()} description via Anthropic")
         return desc
     
     print("! No AI API keys available")
@@ -145,18 +157,40 @@ def main():
     
     for stream in streams:
         # Check if stream is tomorrow and has empty description
-        if is_tomorrow(stream.get('start', '')) and not stream.get('desc', '').strip():
-            title = stream.get('title', '')
+        desc_field = stream.get('desc', '')
+        ru_desc = get_localized_field(desc_field, 'ru')
+        en_desc = get_localized_field(desc_field, 'en')
+        
+        if is_tomorrow(stream.get('start', '')) and (not ru_desc.strip() or not en_desc.strip()):
+            title = get_localized_field(stream.get('title', ''), 'ru')
             tags = stream.get('tags', [])
             
             print(f"Generating description for: {title}")
-            desc = generate_description(title, tags)
             
-            if desc:
-                stream['desc'] = desc
-                updated = True
-                print(f"✓ Added description: {desc[:50]}...")
-            else:
+            # Generate Russian description if missing
+            if not ru_desc.strip():
+                ru_desc = generate_description(title, tags)
+                if ru_desc:
+                    if isinstance(stream.get('desc'), dict):
+                        stream['desc']['ru'] = ru_desc
+                    else:
+                        stream['desc'] = {'ru': ru_desc, 'en': ''}
+                    updated = True
+                    print(f"✓ Added RU description: {ru_desc[:50]}...")
+            
+            # Generate English description if missing
+            if not en_desc.strip():
+                en_title = get_localized_field(stream.get('title', ''), 'en')
+                en_desc = generate_description(en_title, tags, lang='en')
+                if en_desc:
+                    if isinstance(stream.get('desc'), dict):
+                        stream['desc']['en'] = en_desc
+                    else:
+                        stream['desc'] = {'ru': stream.get('desc', ''), 'en': en_desc}
+                    updated = True
+                    print(f"✓ Added EN description: {en_desc[:50]}...")
+            
+            if not ru_desc and not en_desc:
                 print(f"! Could not generate description for: {title}")
     
     if updated:

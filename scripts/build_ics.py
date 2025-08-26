@@ -42,6 +42,12 @@ def format_ics_datetime(dt_str):
         print(f"Error formatting datetime {dt_str}: {e}")
         return ""
 
+def get_localized_field(field, lang='ru'):
+    """Get localized field value."""
+    if isinstance(field, dict):
+        return field.get(lang, field.get('ru', field.get('en', '')))
+    return field or ''
+
 def generate_ics(streams):
     """Generate ICS calendar content."""
     lines = [
@@ -60,14 +66,17 @@ def generate_ics(streams):
         
         if not start_ics or not end_ics:
             continue
+        
+        title = get_localized_field(stream.get('title', ''), 'ru')
+        desc = get_localized_field(stream.get('desc', ''), 'ru')
             
         lines.extend([
             "BEGIN:VEVENT",
             f"UID:{stream.get('id', 'unknown')}@ai-agents-blog",
             f"DTSTART:{start_ics}",
             f"DTEND:{end_ics}",
-            f"SUMMARY:{stream.get('title', 'Stream')}",
-            f"DESCRIPTION:{stream.get('desc', '')}",
+            f"SUMMARY:{title}",
+            f"DESCRIPTION:{desc}",
             "END:VEVENT"
         ])
     

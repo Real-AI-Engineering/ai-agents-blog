@@ -2,6 +2,7 @@
 {{ $now := now }}
 {{ $streams := .Site.Data.streams.streams }}
 {{ $futureStreams := slice }}
+{{ $currentLang := .Page.Language.Lang }}
 
 {{/* Filter future streams and parse dates */}}
 {{ range $streams }}
@@ -20,20 +21,34 @@
       {{ $startTime := time .start }}
       {{ $endTime := time .end }}
       
+      {{/* Get localized title and description */}}
+      {{ $title := .title }}
+      {{ $desc := .desc }}
+      {{ if reflect.IsMap .title }}
+        {{ $title = index .title $currentLang }}
+      {{ end }}
+      {{ if reflect.IsMap .desc }}
+        {{ $desc = index .desc $currentLang }}
+      {{ end }}
+      
       <div class="stream-item">
         <div class="stream-header">
-          <h3 class="stream-title">🔴 {{ .title }}</h3>
+          <h3 class="stream-title">🔴 {{ $title }}</h3>
           <div class="stream-time">
-            {{ $startTime.Format "02.01" }} ({{ $startTime.Format "Mon" }}) {{ $startTime.Format "15:04" }} МСК
+            {{ if eq $currentLang "ru" }}
+              {{ $startTime.Format "02.01" }} ({{ $startTime.Format "Mon" }}) {{ $startTime.Format "15:04" }} МСК
+            {{ else }}
+              {{ $startTime.Format "Jan 02" }} ({{ $startTime.Format "Mon" }}) {{ $startTime.Format "15:04" }} MSK
+            {{ end }}
             {{ if $endTime }} 
               — {{ $endTime.Format "15:04" }}
             {{ end }}
           </div>
         </div>
         
-        {{ if .desc }}
+        {{ if $desc }}
           <div class="stream-description">
-            <p>{{ .desc }}</p>
+            <p>{{ $desc }}</p>
           </div>
         {{ end }}
         
@@ -149,8 +164,13 @@
 
 {{ else }}
   <div class="no-streams">
-    <p>📅 На данный момент предстоящих стримов нет.</p>
-    <p>Следите за обновлениями — новые стримы анонсируются заранее!</p>
+    {{ if eq $currentLang "ru" }}
+      <p>📅 На данный момент предстоящих стримов нет.</p>
+      <p>Следите за обновлениями — новые стримы анонсируются заранее!</p>
+    {{ else }}
+      <p>📅 No upcoming streams scheduled at the moment.</p>
+      <p>Stay tuned for updates — new streams are announced in advance!</p>
+    {{ end }}
   </div>
   
   <style>
