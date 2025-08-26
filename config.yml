@@ -2,6 +2,7 @@ baseURL: "https://real-ai-engineering.github.io/ai-agents-blog/"
 languageCode: "en-us"
 title: "AI Agents Blog"
 theme: "PaperMod"
+timeZone: "Europe/Moscow"
 
 # Multilingual configuration
 defaultContentLanguage: en
@@ -49,6 +50,10 @@ languages:
           name: Поиск
           url: /ru/search/
           weight: 3
+        - identifier: schedule
+          name: Расписание стримов
+          url: /ru/schedule/
+          weight: 4
     params:
       homeInfoParams:
         Title: "Добро пожаловать в блог об AI агентах"

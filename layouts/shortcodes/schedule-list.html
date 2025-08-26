@@ -1,0 +1,171 @@
+{{/* Schedule list shortcode - shows only future streams */}}
+{{ $now := now }}
+{{ $streams := .Site.Data.streams.streams }}
+{{ $futureStreams := slice }}
+
+{{/* Filter future streams and parse dates */}}
+{{ range $streams }}
+  {{ $startTime := time .start }}
+  {{ if $startTime.After $now }}
+    {{ $futureStreams = $futureStreams | append . }}
+  {{ end }}
+{{ end }}
+
+{{/* Sort streams by start time */}}
+{{ $sortedStreams := sort $futureStreams "start" }}
+
+{{ if $sortedStreams }}
+  <div class="schedule-list">
+    {{ range $sortedStreams }}
+      {{ $startTime := time .start }}
+      {{ $endTime := time .end }}
+      
+      <div class="stream-item">
+        <div class="stream-header">
+          <h3 class="stream-title">🔴 {{ .title }}</h3>
+          <div class="stream-time">
+            {{ $startTime.Format "02.01" }} ({{ $startTime.Format "Mon" }}) {{ $startTime.Format "15:04" }} МСК
+            {{ if $endTime }} 
+              — {{ $endTime.Format "15:04" }}
+            {{ end }}
+          </div>
+        </div>
+        
+        {{ if .desc }}
+          <div class="stream-description">
+            <p>{{ .desc }}</p>
+          </div>
+        {{ end }}
+        
+        {{ if or .links.twitch .links.youtube }}
+          <div class="stream-links">
+            {{ if .links.twitch }}
+              <a href="{{ .links.twitch }}" target="_blank" rel="noopener" class="stream-link twitch">
+                📺 Twitch
+              </a>
+            {{ end }}
+            {{ if .links.youtube }}
+              <a href="{{ .links.youtube }}" target="_blank" rel="noopener" class="stream-link youtube">
+                ▶️ YouTube
+              </a>
+            {{ end }}
+          </div>
+        {{ end }}
+        
+        {{ if .tags }}
+          <div class="stream-tags">
+            {{ range .tags }}
+              <span class="stream-tag">#{{ . }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+
+  <style>
+    .schedule-list {
+      margin: 2rem 0;
+    }
+    
+    .stream-item {
+      background: var(--entry);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stream-header {
+      margin-bottom: 1rem;
+    }
+    
+    .stream-title {
+      margin: 0 0 0.5rem 0;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .stream-time {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .stream-description {
+      margin: 1rem 0;
+      color: var(--content);
+    }
+    
+    .stream-description p {
+      margin: 0;
+    }
+    
+    .stream-links {
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .stream-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary);
+      color: var(--theme);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    
+    .stream-link:hover {
+      opacity: 0.8;
+    }
+    
+    .stream-link.twitch {
+      background: #9146FF;
+    }
+    
+    .stream-link.youtube {
+      background: #FF0000;
+    }
+    
+    .stream-tags {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .stream-tag {
+      background: var(--hljs-bg);
+      color: var(--hljs);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  </style>
+
+{{ else }}
+  <div class="no-streams">
+    <p>📅 На данный момент предстоящих стримов нет.</p>
+    <p>Следите за обновлениями — новые стримы анонсируются заранее!</p>
+  </div>
+  
+  <style>
+    .no-streams {
+      background: var(--entry);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .no-streams p {
+      margin: 0.5rem 0;
+      color: var(--secondary);
+    }
+  </style>
+{{ end }}

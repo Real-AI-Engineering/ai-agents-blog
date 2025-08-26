@@ -1,0 +1,44 @@
+streams:
+  - id: "2025-08-26-ai-basics"
+    title: "Основы AI агентов: с чего начать"
+    start: "2025-08-26T19:00:00+03:00"
+    end: "2025-08-26T20:30:00+03:00"
+    platforms: ["twitch", "youtube"]
+    links:
+      twitch: "https://twitch.tv/your"
+      youtube: "https://youtube.com/@your"
+    desc: ""
+    tags: ["ai", "beginners", "tutorial"]
+  
+  - id: "2025-08-27-langchain"
+    title: "LangChain на практике: создаем чат‑бота"
+    start: "2025-08-27T19:00:00+03:00"
+    end: "2025-08-27T20:30:00+03:00"
+    platforms: ["twitch", "youtube"]
+    links:
+      twitch: "https://twitch.tv/your"
+      youtube: "https://youtube.com/@your"
+    desc: ""
+    tags: ["langchain", "python", "chatbot"]
+  
+  - id: "2025-08-28-automation"
+    title: "Автоматизация рутины с помощью AI"
+    start: "2025-08-28T19:00:00+03:00"
+    end: "2025-08-28T20:00:00+03:00"
+    platforms: ["twitch", "youtube"]
+    links:
+      twitch: "https://twitch.tv/your"
+      youtube: "https://youtube.com/@your"
+    desc: ""
+    tags: ["automation", "productivity", "ai"]
+  
+  - id: "2025-08-29-deployment"
+    title: "Деплой AI моделей в продакшн"
+    start: "2025-08-29T19:00:00+03:00"
+    end: "2025-08-29T21:00:00+03:00"
+    platforms: ["twitch", "youtube"]
+    links:
+      twitch: "https://twitch.tv/your"
+      youtube: "https://youtube.com/@your"
+    desc: ""
+    tags: ["deployment", "docker", "production"]

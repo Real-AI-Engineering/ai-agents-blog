@@ -1,0 +1,71 @@
+name: Deploy Hugo site with ICS calendar
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 3 * * *'  # Daily at 03:00 UTC (06:00 MSK)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Python dependencies
+      run: |
+        pip install PyYAML
+        
+    - name: Generate ICS calendar
+      run: |
+        cd ai-agents-blog
+        python scripts/build_ics.py
+        
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.128.2'
+        extended: true
+        
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v4
+      
+    - name: Build Hugo site
+      run: |
+        cd ai-agents-blog
+        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./ai-agents-blog/public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

@@ -1,0 +1,32 @@
+name: Discord stream announcements
+
+on:
+  push:
+    paths:
+      - 'ai-agents-blog/data/streams.yml'
+  workflow_dispatch:
+
+jobs:
+  announce-schedule:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Python dependencies
+      run: |
+        pip install PyYAML
+        
+    - name: Post schedule to Discord
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        SITE_PUBLIC_URL: ${{ vars.SITE_PUBLIC_URL || 'https://real-ai-engineering.github.io/ai-agents-blog' }}
+      run: |
+        cd ai-agents-blog
+        python scripts/post_discord.py

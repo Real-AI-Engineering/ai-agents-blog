@@ -1,0 +1,42 @@
+name: Generate AI descriptions for streams
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 06:00 UTC (09:00 MSK)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-descriptions:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Python dependencies
+      run: |
+        pip install PyYAML
+        
+    - name: Generate AI descriptions
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: |
+        cd ai-agents-blog
+        python scripts/generate_descriptions.py
+        
+    - name: Commit and push changes
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "🤖 Auto-generate stream descriptions"
+        file_pattern: "ai-agents-blog/data/streams.yml"
+        commit_user_name: "Stream Bot"
+        commit_user_email: "bot@ai-agents-blog.dev"
