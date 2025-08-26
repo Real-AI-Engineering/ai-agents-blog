@@ -58,7 +58,8 @@ languages:
 enableEmoji: true
 
 # Pagination
-paginate: 10
+pagination:
+  pagerSize: 10
 
 # Build configuration
 minify:
@@ -139,7 +140,7 @@ privacy:
     respectDoNotTrack: true
   instagram:
     disable: true
-  twitter:
+  x:
     disable: false
     enableDNT: true
   vimeo:
