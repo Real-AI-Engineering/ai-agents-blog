@@ -1,16 +1,24 @@
 ---
-title: "Claude Code: Enable 1,000,000 Token Context (Sonnet 4) and Setup Development Environment"
+title: "Claude Code: Enable 1 Million Token Context (Sonnet 4) — Complete Guide 2025"
 date: 2025-08-27
 tags:
   - Claude Code
   - Sonnet 4
-  - 1M context
-  - CLI
-  - Sub-agents
-summary: Step-by-step guide to enable Sonnet 4 [1m] in CLI, organize project memory (CLAUDE.md), and configure sub-agents for full-stack development.
+  - 1M token context
+  - CLI tools
+  - sub-agents
+  - code automation
+  - software development
+  - AI coding assistant
+categories:
+  - Development Tools
+  - AI for Developers
+description: "Complete guide to setting up Claude Code with 1 million token context. Learn how to enable Sonnet 4 [1m], configure project memory via CLAUDE.md, and create sub-agents for automated testing, code review, and deployment."
+keywords: "Claude Code, Sonnet 4, 1M token context, CLI, sub-agents, development automation, CLAUDE.md, code testing, code review, AI assistant"
+summary: "Step-by-step guide to enable Sonnet 4 [1m] in CLI with 1 million token context, organize project memory (CLAUDE.md), and configure sub-agents for full-stack development automation."
 ---
 
-# How to Enable and Use **1,000,000 Token Context** in Claude Code (Sonnet 4)
+# How to Enable 1 Million Token Context in Claude Code (Sonnet 4) — Complete Guide
 
 > **Quick Start:**  
 > 1) Run `claude`.  
@@ -35,25 +43,31 @@ summary: Step-by-step guide to enable Sonnet 4 [1m] in CLI, organize project mem
 
 ---
 
-## 1. Enabling 1M Context in CLI
+## 1. Enabling 1 Million Token Context in Claude Code CLI
 
-**Steps:**
-1. Start interactive REPL:
+Claude Code with **Sonnet 4 [1m]** model provides unprecedented 1 million token context for working with large codebases. This is a revolutionary solution for full-stack developers seeking enhanced AI-powered development workflows.
+
+**Step-by-step setup:**
+
+1. **Launch Claude Code Interactive REPL:**
    ```bash
    claude
    ```
-2. Switch model:
+
+2. **Switch to 1M Context Model:**
    ```text
    /model
    ```
-   Select **Sonnet 4 [1m]** from menu. If not available, try explicit input:
+   Select **Sonnet 4 [1m]** from the menu. If the option isn't available in the menu, use direct command:
    ```text
    /model sonnet[1m]
    ```
-3. Check active model and settings:
+
+3. **Verify Active Model:**
    ```text
    /status
    ```
+   Ensure the output shows active Sonnet 4 model with 1M token support.
 
 ---
 
@@ -306,3 +320,11 @@ echo "Ready. Run: claude → /model sonnet[1m] → /status"
 - How do sub-agents work and where to store their files? — Subagents section.
 - What slash commands are available for context? — `/compact` (compress history), `/clear` (reset history).
 - Where to check CLI flags (model, tools)? — CLI reference.
+
+---
+
+## Video Tutorial
+
+Watch a detailed video tutorial on setting up Claude Code with 1 million token context:
+
+{{< youtube "-tvqEL-YFTI" >}}
