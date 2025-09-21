@@ -381,4 +381,4 @@ But it accidentally solved problems that would appear 15 years later — when AI
 
 ---
 
-*Have experience with Kafka or Pinot? Implementing AI agents? Share in comments or reach me on [Telegram](https://t.me/yourusername)!*
+*Have experience with Kafka or Pinot? Implementing AI agents? Share in comments or reach me on [Telegram](https://t.me/vitnm)!*
