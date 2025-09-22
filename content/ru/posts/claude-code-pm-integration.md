@@ -114,7 +114,8 @@ cookiecutter gh:Real-AI-Engineering/cookiecutter-react-claude
 
 ## 💬 Присоединяйтесь к обсуждению
 
-- Есть вопросы? [Откройте дискуссию](https://github.com/Real-AI-Engineering/cookiecutter-python-claude/discussions)
+- Вопросы по настройке Python? [Откройте дискуссию](https://github.com/Real-AI-Engineering/cookiecutter-python-claude/discussions)
+- Вопросы по настройке React? [Откройте дискуссию](https://github.com/Real-AI-Engineering/cookiecutter-react-claude/discussions)
 - Хотите поделиться опытом? Отметьте нас в Twitter с #ClaudeCodePM
 - Нашли полезным? Поделитесь с вашей командой!
 

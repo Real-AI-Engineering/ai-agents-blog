@@ -114,7 +114,8 @@ Huge thanks to the [Automaze team](https://github.com/automazeio/ccpm) for creat
 
 ## 💬 Join the Discussion
 
-- Have questions? [Open a discussion](https://github.com/Real-AI-Engineering/cookiecutter-python-claude/discussions)
+- Questions about Python setup? [Open a discussion](https://github.com/Real-AI-Engineering/cookiecutter-python-claude/discussions)
+- Questions about React setup? [Open a discussion](https://github.com/Real-AI-Engineering/cookiecutter-react-claude/discussions)
 - Want to share your experience? Tag us on Twitter with #ClaudeCodePM
 - Found this useful? Share it with your team!
 
