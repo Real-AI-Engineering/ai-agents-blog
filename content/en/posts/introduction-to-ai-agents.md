@@ -1,6 +1,6 @@
 ---
 title: "Introduction to AI Agents: The Future of Automation"
-date: 2024-01-15T10:00:00+00:00
+date: 2025-08-25T10:00:00+03:00
 draft: false
 author: "Real AI Engineering"
 tags: ["AI", "Agents", "Automation", "Machine Learning"]

@@ -1,6 +1,6 @@
 ---
 title: "Claude Code: включаем контекст 1 миллион токенов (Sonnet 4) — полный гайд 2025"
-date: 2025-08-27
+date: 2025-09-08T10:00:00+03:00
 tags:
   - Claude Code
   - Sonnet 4

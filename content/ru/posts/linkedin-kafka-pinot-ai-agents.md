@@ -1,6 +1,6 @@
 ---
 title: "4 урока от LinkedIn: как функция «Кто смотрел профиль» породила Apache Kafka и Pinot (и почему это важно для ИИ-агентов)"
-date: 2025-01-21
+date: 2025-09-15T10:00:00+03:00
 tags:
   - Apache Kafka
   - Apache Pinot

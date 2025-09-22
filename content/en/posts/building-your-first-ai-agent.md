@@ -1,6 +1,6 @@
 ---
 title: "Building Your First AI Agent: A Step-by-Step Guide"
-date: 2024-01-20T14:30:00+00:00
+date: 2025-09-01T10:00:00+03:00
 draft: false
 author: "Real AI Engineering"
 tags: ["AI", "Programming", "Tutorial", "Python", "OpenAI"]

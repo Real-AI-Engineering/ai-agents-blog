@@ -1,6 +1,6 @@
 ---
 title: "Claude Code: Enable 1 Million Token Context (Sonnet 4) — Complete Guide 2025"
-date: 2025-08-27
+date: 2025-09-08T10:00:00+03:00
 tags:
   - Claude Code
   - Sonnet 4

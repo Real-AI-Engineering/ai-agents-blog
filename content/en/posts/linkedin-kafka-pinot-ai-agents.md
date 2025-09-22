@@ -1,6 +1,6 @@
 ---
 title: "4 Lessons from LinkedIn: How 'Who Viewed Your Profile' Spawned Apache Kafka and Pinot (And Why It Matters for AI Agents)"
-date: 2025-01-21
+date: 2025-09-15T10:00:00+03:00
 tags:
   - Apache Kafka
   - Apache Pinot
